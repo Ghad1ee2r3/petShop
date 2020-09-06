@@ -40,7 +40,7 @@ def pet_update(request, pet_id):
     	if form.is_valid():
     		form.save()
     		#messages.success(request, 'Your car was updated success.')
-    		return redirect('detail/(?P<pet_id>[0-9]+)$')
+    		return redirect('pet-detail',pet_id=pet_obj.id)
     context = {
     	"pet_obj": pet_obj,
     	"form":form,
