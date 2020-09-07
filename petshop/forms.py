@@ -4,5 +4,6 @@ from .models import Pet
 class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
-        fields = ["name","age","image", "price"]
+        fields = '__all__'
+        #["name","age","image", "price"]
     #    '__all__'
