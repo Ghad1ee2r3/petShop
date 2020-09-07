@@ -3,8 +3,12 @@ from .models import Pet
 from .forms import PetForm
 # Create your views here.
 def pet_list(request):
+    #list=Pet.objects.get(available="True")
     context = {
-        "pets": Pet.objects.all()
+        "pets": Pet.objects.filter(available="True")
+        # Pet.objects.all()
+        #
+
     }
     return render(request, 'list.html', context)
 
@@ -18,9 +22,10 @@ def pet_detail(request, pet_id):
 def pet_create(request):
 	#Complete Me
 	form = PetForm()
-	if request.method == "POST":
+	if request.method == "POST" :
+        #Corso.objects.filter(f1=True)
 		form = PetForm(request.POST , request.FILES)
-		if form.is_valid():
+		if form.is_valid()  :
 			form.save()
 			#messages.success(request, ' add  success.')
 			return redirect('pet-list')
